@@ -1,0 +1,300 @@
+\q
+CREATE DATABASE "sql-crud";
+\c "sql-crud";
+\l
+\i scripts/create_table/cities.sql
+\i scripts/create_table/cities.sql
+/d
+;
+\d
+\dt
+\i scripts/create_table/pets.sql
+\i scripts/create_table/people.sql
+\i scripts/bulk_load/people.psql
+\i scripts/bulk_load/people.psql
+\i scripts/insert_into/cities.sql
+SELECT * FROM cities;
+\i scripts/bulk_load/cities.psql
+\i scripts/bulk_load/cities.psql
+SELECT * FROM cities
+SELECT * FROM cities;
+SELECT * FROM cities;
+\i scripts/bulk_load/people.psql
+\d people
+DROP TABLE people
+;
+\i scripts/create_table/people.sql
+\i scripts/bulk_load/people.psql
+\?
+\i scripts/select_from/cities.sql
+\i scripts/select_from/cities.sql
+\i scripts/select_from/pets.sql
+\i scripts/select_from/pets.sql
+\dt
+SELECT count (*) FROM pets
+;
+\copy pets(dob,kind,name) FROM 'data/pets.csv' WITH (HEADER true, FORMAT csv)
+SELECT count (*) FROM pets
+;
+\i scripts/select_from/pets.sql
+d people
+;
+\d people;
+\i scripts/alter_table/people.sql;
+\i scripts/alter_table/people.sql;
+\d people
+\d cities
+\i scripts/alter_table/cities.sql
+\d cities
+\d pets
+\i scripts/alter_table/pets.sql
+\d pets
+select sum(population)from cities;
+\i scripts/update/cities.sql
+select sum(population)from cities;
+select sum(weight)from pets WHERE kind = 'fish';
+\copy pets(dob,kind,name) FROM 'data/pets.csv' WITH (HEADER true, FORMAT csv);
+select sum(weight)from pets WHERE kind = 'fish';
+select sum (weight)from pets WHERE kind = 'fish';
+select sum(weight)from pets WHERE kind = 'fish';
+\i scripts/update/pets.sql;
+select sum(weight)from pets WHERE kind = 'fish';
+\i scripts/update/pets.sql;
+\i scripts/update/pets.sql;
+select sum(weight)from pets WHERE kind = 'fish';
+select given_name from people where given_name LIKE 'SAM%';
+select given_name from people where given_name LIKE 'Sam&';
+select * from cities;
+select * from cities where region IS NULL;
+\i scripts/delete_from/cities.sql;
+select * from cities where region IS NULL;
+DELETE FROM pets 
+select sum(weight)from pets WHERE kind = 'fish';;
+SELECT FROM pets WHERE dob < '1996-01-01';
+DELETE FROM pet;
+\i scripts/delete_from/pets.sql;
+SELECT FROM pets WHERE dob < '1996-01-01';
+\copy licensees(surname,given_name,gender,height,weight,dob,eye_color,hair_color) FROM 'data/licensees.csv' WITH (HEADER true, FORMAT csv);
+\copy licensees(surname,given_name,gender,height,weight,dob,eye_color,hair_color) FROM 'data/licensees.csv' WITH (HEADER true, FORMAT csv);
+CREATE TABLE licensees(
+   id SERIAL PRIMARY KEY,
+   surname CHARACTER VARYING,
+   given_name CHARACTER VARYING,
+   gender CHARACTER VARYING(1),
+   height NUMBER,
+   weight NUMBER,
+   dob DATE,
+   eye_color CHARACTER VARYING,
+   hair_color CHARACTER VARYING
+);
+CREATE TABLE licensees(
+   id SERIAL PRIMARY KEY,
+   surname CHARACTER VARYING,
+   given_name CHARACTER VARYING,
+   gender CHARACTER VARYING(1),
+   height NUMERIC,
+   weight NUMERIC,
+   dob DATE,
+   eye_color CHARACTER VARYING,
+   hair_color CHARACTER VARYING
+);
+\copy licensees(surname,given_name,gender,height,weight,dob,eye_color,hair_color) FROM 'data/licensees.csv' WITH (HEADER true, FORMAT csv);
+SELECT *
+FROM licensees
+WHERE eye_color = 'Hazel'
+AND
+WHERE hair_color = 'Brown' AND hair_color = 'Black';
+SELECT *
+FROM licensees
+WHERE eye_color = 'Hazel'
+AND hair_color = 'Brown' AND hair_color = 'Black';
+SELECT *
+FROM licensees
+WHERE eye_color = 'Hazel'
+AND hair_color = 'Brown' & hair_color = 'Black';
+SELECT *
+FROM licensees
+WHERE eye_color = 'Hazel'
+AND (hair_color = 'Brown' AND hair_color = 'Black');
+rails g model City population:integer name:string country:string region:string longitude:float latitude:float
+\q
+\d
+\d cities
+select * from people;
+select * from pets;
+\d
+\q
+\d
+\d pet
+\d
+\d sales
+\d schema_migrations
+SELECT * FROM schema_migrations;
+\q
+\d
+SELECT * FROM MOVIES
+;
+ALTER TABLE movies;
+ALTER TABLE movies
+DELETE COLUMN car_make
+\d movies
+quit
+ALTER TABLE movies
+DROP COLUMN car_make
+\d
+\d movies
+rails db
+\d
+\d movies
+\d movies
+\q
+psql
+CREATE DATABASE "sql-join" TEMPLATE "sql-crud";
+CREATE DATABASE "sql-join" TEMPLATE "sql-crud";
+\c sql-join
+\i scripts/addresses.sql
+\i scripts/create_table/addresses.sql
+\i scripts/create_table/addresses.sql
+\i scripts/alter_table/people.sql;
+\i scripts/alter_table/people.sql;
+\i scripts/alter_table/people.sql;
+\i scripts/alter_table/pets.sql;
+\d pets
+\d addresses
+\d cities
+\i scripts/create_table/addresses.sql;
+\i scripts/alter_table/people.sql;
+\d people
+SELECT COUNT (*) FROM cities WHERE name LIKE 'Somer%';
+SELECT COUNT (*) FROM cities WHERE name LIKE 'Los A%';
+SELECT COUNT (*) FROM cities WHERE name LIKE 'Boston%';
+\i scripts/insert_into/addresses.sql;
+\d addresses
+SELECT COUNT (*) FROM cities WHERE name LIKE 'Frank%';
+SELECT (*) FROM addresses WHERE city_id IS NOT NULL;
+SELECT (*) FROM addresses WHERE city_id IS NOT NULL;
+\i scripts/bulk_load/address.sql;
+\i scripts/bulk_load/addresses.sql;
+select count(*) from cities;
+\i scripts/update/addresses.sql;
+\i scripts/update/people.sql;
+\d pets
+\d people
+select count(*) from people WHERE id= '12';
+select count(*) from people WHERE id= '13';
+\i scripts/update/pets.sql;
+\i scripts/update/pets.sql;
+\i scripts/update/pets.sql;
+\i scripts/select_from/people_w_join.sql 
+\i scripts/select_from/people_w_join.sql
+\i scripts/alter_table/Add_column_cities.sql;
+\i scripts/select_from/addresses.sql;
+\i scripts/select_from/people.sql;
+\d pets
+\d people
+\i scripts/select_from/pets.sql;
+\i scripts/select_from/pets.sql;
+\i scripts/select_from/pets.sql;
+\d
+\d movies
+\d movies
+SELECT(*) FROM movies
+;
+SELECT(*) FROM movies;
+SELECT("*") select * from movies
+SELECT(*) FROM movies;;
+select * from movies;
+rails g model Review name:string comment:text movie:references
+rake db:migrate
+rails g model Review name:string comment:text movie:references;
+rails db:migrate;
+\d
+\d reviews
+\d reviews
+\d
+select * from reviews;
+CREATE DATABASE "sql-join-tables" TEMPLATE "sql-crud";
+\c sql-join-tables\d
+\d
+\c sql-join-tables\d;
+\d
+\q
+CREATE DATABASE "sql-join-tables" TEMPLATE "sql-crud";
+\c sql-join-tables
+\d
+q
+\q
+\d
+\q
+\d
+\i scripts/create_table/people.sql
+\i scripts/create_table/cities.sql
+\d cities
+\i scripts/bulk_load/cities
+\i scripts/bulk_load/cities.psql
+\i scripts/bulk_load/people.psql
+\i scripts/bulk_load/pets.psql
+\i scripts/create_table/pets
+\i scripts/create_table/pets.sql
+\i scripts/bulk_load/pets.psql
+\dt
+\q
+create database "sql-join-tables" template "sql-crud";
+DROP DATABASE "sql-join-tables";
+create database "sql-join-tables" template "sql-crud";
+\q
+\d
+\d cities
+\d people
+\d people
+\d cities
+quit
+\q
+q
+\q
+\d
+\d movies
+bundle exec rake db:rollback
+\d
+\d movies
+\d
+\d movies
+\d
+\d people
+\d
+\d castings
+\d people
+\d castings
+\d castings
+select * from castings
+;
+select * from castings;
+\q
+create role "Rate-My-Honey" login createdb;
+\q
+create role "rate-my-honey" login createdb;
+\q
+create role "rate-my-honey" login createdb;
+\q
+create role "project2-api" login createdb;
+\q
+\d
+ people
+\d people
+DROP TABLE users;
+\d
+\d
+ users
+\d users
+\d
+truncate table users
+;
+\d
+\d honeys
+\d
+\d honeys
+\d topics
+\d topicss
+\d
+\d users
+\s honeys

@@ -11,33 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109213147) do
+ActiveRecord::Schema.define(version: 20151109231405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: :cascade do |t|
-    t.string   "title"
-    t.string   "isbn"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "comments", force: :cascade do |t|
+    t.integer  "comment_author"
+    t.text     "comment_text"
+    t.integer  "topic_id"
+    t.integer  "honey_id_in_topic"
+    t.integer  "comment_rating_of_honey"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "honeys", force: :cascade do |t|
     t.string   "name"
-    t.string   "honey_owner"
     t.integer  "honey_rating_by_queen"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "user_id"
   end
 
-  create_table "topicss", force: :cascade do |t|
-    t.integer  "topic_honey_id"
-    t.integer  "topic_poster_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+  add_index "honeys", ["user_id"], name: "index_honeys_on_user_id", using: :btree
+
+  create_table "topics", force: :cascade do |t|
+    t.string  "title"
+    t.text    "description"
+    t.integer "honey_id"
   end
+
+  add_index "topics", ["honey_id"], name: "index_topics_on_honey_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -52,4 +57,6 @@ ActiveRecord::Schema.define(version: 20151109213147) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
+  add_foreign_key "honeys", "users"
+  add_foreign_key "topics", "honeys"
 end
