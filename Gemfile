@@ -4,6 +4,12 @@ source 'https://rubygems.org'
 # Set required ruby version (for heroku)
 ruby '2.2.3'
 
+# Added from Heroku lesson repo W/Matt
+group :production do
+     gem 'rails_12factor'
+     gem 'puma'
+end
+
 gem 'rails', '4.2.4'
 
 # Reduce rails kitchen sink approach
