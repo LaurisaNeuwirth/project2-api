@@ -23,7 +23,6 @@ User.delete_all
 #   ])
 
 
-# OLD CODE
 %w(sue dustin adam).each do |name|
   email = "#{name}@example.com"
   user = User.create!(name: name, email: email, password: 'abc123',
@@ -48,18 +47,32 @@ Honey.all.each do |honey|
 end
 
 
+#new code to create comments
+
+#colums in Comment Table:
+    # t.integer "user_id"
+    # t.text    "content"
+    # t.integer "topic_id"
+    # t.integer "rating"
+
+# SEE IF THIS WORKS!!!!
+Topic.all.each do |topic|
+  3.times do |i|
+    count = i + 1
+    # Every test comment says 'Here's my comment on Topic titled #whatever'
+    content =  "Here's my comment on Topic titled #{topic.title}"
+    # Every test comment gives a rating of 5
+    rating = 5
+    topic.comments.create!(content: content, rating: rating)
+    puts "Created comment"
+  end
+
+end
+
+
 #Create 3 new Topics for each Honey
 
 # Topics.create!([
-#       {title: "Topic 1", decription: "Date no. 1 for Honey 1", honey_id: 1},
-#       {title: "Topic 2", decription: "Date no. 2 for Honey 1", honey_id: 1},
-#       {title: "Topic 3", decription: "Date no. 3 for Honey 1", honey_id: 1},
-#       {title: "Topic 4", decription: "Date no. 1 for Honey 2", honey_id: 2},
-#       {title: "Topic 5", decription: "Date no. 2 for Honey 2", honey_id: 2},
-#       {title: "Topic 6", decription: "Date no. 3 for Honey 2", honey_id: 2},
-#       {title: "Topic 6", decription: "Date no. 1 for Honey 3", honey_id: 3},
-#       {title: "Topic 7", decription: "Date no. 2 for Honey 3", honey_id: 3},
-#       {title: "Topic 8", decription: "Date no. 3 for Honey 3", honey_id: 3},
 #   ])
 
 
