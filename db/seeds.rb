@@ -56,6 +56,7 @@ end
     # t.integer "rating"
 
 # SEE IF THIS WORKS!!!!
+sue = User.first
 Topic.all.each do |topic|
   3.times do |i|
     count = i + 1
@@ -63,7 +64,8 @@ Topic.all.each do |topic|
     content =  "Here's my comment on Topic titled #{topic.title}"
     # Every test comment gives a rating of 5
     rating = 5
-    topic.comments.create!(content: content, rating: rating)
+
+    topic.comments.create!(content: content, rating: rating, user: sue)
     puts "Created comment"
   end
 
