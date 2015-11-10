@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109231405) do
+ActiveRecord::Schema.define(version: 20151109233944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "comment_author"
-    t.text     "comment_text"
-    t.integer  "topic_id"
-    t.integer  "honey_id_in_topic"
-    t.integer  "comment_rating_of_honey"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer "user_id"
+    t.text    "content"
+    t.integer "topic_id"
+    t.integer "rating"
   end
+
+  add_index "comments", ["topic_id"], name: "index_comments_on_topic_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "honeys", force: :cascade do |t|
     t.string   "name"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20151109231405) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
+  add_foreign_key "comments", "topics"
+  add_foreign_key "comments", "users"
   add_foreign_key "honeys", "users"
   add_foreign_key "topics", "honeys"
 end
