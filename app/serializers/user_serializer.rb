@@ -1,6 +1,6 @@
 #
 class UserSerializer < ActiveModel::Serializer
-  attributes :name, :hive, :email
+  attributes :id, :name, :hive, :email
 
   has_many :honeys
   # attributes :id, :email, :current_user
