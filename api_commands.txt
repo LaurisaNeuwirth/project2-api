@@ -2,7 +2,8 @@
 
 curl --request POST --header "Content-Type: application/json" -d '{
   "credentials": {
-    "email": "sue@example.com",
+    "name": "Sue Whatsherface",
+    "email": "s@example.com",
     "password": "abc123"
   }
 }' http://localhost:3000/login
