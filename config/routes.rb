@@ -7,4 +7,7 @@
   resources :users, except: [:new, :edit]
 
   resources :books, except: [:new, :edit]
+  resources :honeys
+  resources :comments
+  resources :topics
 end
