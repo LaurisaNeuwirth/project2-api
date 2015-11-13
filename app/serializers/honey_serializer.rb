@@ -1,5 +1,5 @@
 class HoneySerializer < ActiveModel::Serializer
-  attributes :name, :honey_rating_by_queen
+  attributes :id, :name, :honey_rating_by_queen
 
   has_many :topics
   # attributes :id, :email, :current_user
